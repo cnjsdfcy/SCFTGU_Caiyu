@@ -22,8 +22,10 @@ void event_filled::event_filled_thread(void) {
   my_event.notify(t_10NS); // overwritten
   my_event.notify(t_15NS); // too late
   my_event.notify(t_10NS); // already there
-  my_event.notify(SC_ZERO_TIME); // 3rd actual event
+  my_event.notify(SC_ZERO_TIME); // 2nd actual event
   my_event.notify(SC_ZERO_TIME);
+  // all these above notifications, only the .notify() and .notify(SC_ZERO_TIME) works
+  // don't understand yet
   cout << "INFO: Allow my events" << endl;
   t_start = sc_time_stamp();
   wait(1,SC_US);
@@ -51,7 +53,7 @@ void event_filled::monitor_my_method(void) {
   cout << "INFO: my_event " 
        << ++my_count
        << " detected after "
-       << sc_time_stamp() - t_start
+       << sc_time_stamp() - t_start << " " << sc_time_stamp()
        << endl;
 }//end monitor_my_method()
 

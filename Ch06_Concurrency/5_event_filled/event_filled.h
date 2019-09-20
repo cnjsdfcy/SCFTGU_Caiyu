@@ -17,6 +17,7 @@ using std::cout;
 using std::endl;
 
 #include <systemc>
+#define SYSTEMC_V2_1
 
 SC_MODULE(event_filled) {
   sc_core::sc_time t_start;
